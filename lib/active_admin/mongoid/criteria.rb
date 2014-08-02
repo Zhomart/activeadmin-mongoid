@@ -13,6 +13,10 @@ Mongoid::Criteria.class_eval do
     CollectionTable.new(klass.collection)
   end
 
+  def ransack(q)
+    Ransackoid::Ransack.new(self, q)
+  end
+
   class CollectionTable < SimpleDelegator
     def from(*a)
       self

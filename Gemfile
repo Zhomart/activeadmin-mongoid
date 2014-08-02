@@ -5,11 +5,13 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-# gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'Zhomart/active_admin'
 
 # Test app stuff
 
-gem 'rails', '~> 4.0.0'
+# gem 'rails', '~> 4.0.0'
+
+gem 'pry'
 
 # Gems used only for assets and not required
 # in production environments by default.
