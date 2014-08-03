@@ -4,10 +4,10 @@ module Ransackoid
 
       extend ActiveSupport::Concern
 
-      included do
-        class_attribute :_ransackers
-        self._ransackers ||= {}
-      end
+      # included do
+      #   class_attribute :_ransackers
+      #   self._ransackers ||= {}
+      # end
 
       module ClassMethods
 

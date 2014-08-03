@@ -1,2 +1,5 @@
+require 'mongoid'
+require 'ransack'
+require 'ransack_mongoid_ext'
 require 'active_admin/mongoid'
-require 'ransackoid'
+# require 'ransackoid'

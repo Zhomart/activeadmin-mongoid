@@ -42,21 +42,44 @@ describe 'a' do
       describe 'filters' do
         describe 'string' do
           it 'searches by title' do
-            # fill_in 'Title', with: 'Brown'
-            # click_on 'Filter'
+            fill_in 'Title', with: 'Brown'
+            click_on 'Filter'
 
-            # within '#index_table_posts' do
-            #   page.should have_content('Quick Brown Fox')
-            # end
+            within '#index_table_posts' do
+              page.should have_content('Quick Brown Fox')
+            end
 
-            # fill_in 'Title', with: 'dog'
-            # click_on 'Filter'
-            # page.should_not have_content('Quick Brown Fox')
+            fill_in 'Title', with: 'dog'
+            click_on 'Filter'
+            page.should_not have_content('Quick Brown Fox')
 
-            # fill_in 'Title', with: ''
-            # click_on 'Filter'
+            fill_in 'Title', with: ''
+            click_on 'Filter'
 
-            # page.should have_content('Displaying 1 Post')
+            page.should have_content('Displaying 1 Post')
+          end
+        end
+
+        describe 'date_range' do
+          # before { skip }
+          it 'searches by created_at range' do
+            fill_in 'q[created_at_gteq]', with: 1.day.ago.to_datetime.strftime("%Y-%m-%d")
+            fill_in 'q[created_at_lteq]', with: 2.days.from_now.to_datetime.strftime("%Y-%m-%d")
+            click_on 'Filter'
+
+            within '#index_table_posts' do
+              page.should have_content('Quick Brown Fox')
+            end
+
+            fill_in 'q[created_at_gteq]', with: 1.day.from_now.to_datetime.strftime("%Y-%m-%d")
+            click_on 'Filter'
+            page.should_not have_content('Quick Brown Fox')
+
+            fill_in 'q[created_at_gteq]', with: ''
+            fill_in 'q[created_at_lteq]', with: ''
+            click_on 'Filter'
+
+            page.should have_content('Displaying 1 Post')
           end
         end
 

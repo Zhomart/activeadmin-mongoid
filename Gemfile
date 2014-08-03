@@ -11,6 +11,8 @@ gem 'activeadmin', github: 'Zhomart/active_admin'
 
 # gem 'rails', '~> 4.0.0'
 
+gem 'ransack', github: 'Zhomart/ransack', branch: 'mongoid'
+
 gem 'pry'
 
 # Gems used only for assets and not required
