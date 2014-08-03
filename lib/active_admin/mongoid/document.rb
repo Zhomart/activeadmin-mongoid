@@ -129,13 +129,13 @@ module ActiveAdmin::Mongoid::Document
       @connection ||= Connection.new(self)
     end
 
-  #   def find_by_id id
-  #     find_by(:_id => id)
-  #   end
+    def find_by_id id
+      find_by(:_id => id)
+    end
 
-  #   def quoted_table_name
-  #     collection_name.to_s.inspect
-  #   end
+    def quoted_table_name
+      collection_name.to_s.inspect
+    end
 
     def reflections *a
       relations *a

@@ -24,6 +24,12 @@ require 'rspec/autorun'
 Dir[File.join(File.expand_path("../../", __FILE__), "spec/support/**/*.rb")].each {|f| require f}
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, {
+    js_errors: false
+    })
+end
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
